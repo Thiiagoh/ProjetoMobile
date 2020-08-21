@@ -1,0 +1,38 @@
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(100) NULL,
+  PRIMARY KEY (`email`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `favoritos` (
+  `filmes` VARCHAR(100) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `data` VARCHAR(45) NOT NULL,
+  `genero` VARCHAR(45) NOT NULL,
+  `clientes_email` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`filmes`, `clientes_email`),
+  INDEX `fk_favoritos_clientes_idx` (`clientes_email` ASC),
+  CONSTRAINT `fk_favoritos_clientes`
+    FOREIGN KEY (`clientes_email`)
+    REFERENCES `clientes` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `vistos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `clientes_email` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `temp` VARCHAR(45) NULL,
+  `ep` VARCHAR(45) NULL,
+  `tipo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `avaliacao` (
+  `idavaliacao` INT NOT NULL AUTO_INCREMENT,
+  `clientes_email` VARCHAR(45) NOT NULL,
+  `nome_filme` VARCHAR(45) NOT NULL,
+  `nota` INT NULL,
+  PRIMARY KEY (`idavaliacao`))
+ENGINE = InnoDB;
