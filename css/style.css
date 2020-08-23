@@ -409,3 +409,42 @@ a:hover > .imagem{
     width: 1%;
 }
 
+.modal-dialog {
+    background-color: #151515;
+    border-color: #000;
+    color: white;
+    border-radius: 10px;
+}
+.modal-content {
+    background-color: #151515;
+    border-color: #000;
+    color: white;
+}
+.modal-header{
+    background-color: #151515;
+    border-color: #000;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.modal-body{
+    background-color: #151515;
+    border-color: #000;
+    color: white;
+}
+.modal-footer {
+    background-color: #151515;
+    border-color: #000;
+    color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.carousel-inner{
+    border-radius: 10px;
+}
+.close{
+    color: #fff;
+}
+.close:hover{
+    opacity: .6;
+}
