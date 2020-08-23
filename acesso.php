@@ -77,7 +77,7 @@
                 <div class="container">
                     <div class="main-container">
                         <div class="container-fluid">
-                            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+                            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="6000">
                                 <div class="carousel-inner row w-100 mx-auto flex-nowrap" role="listbox">
 
                                     <div class="carousel-item col-md-3 active">
@@ -510,13 +510,13 @@
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Anne with an E" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                            <input type="" name="filme" value="Anne with an E" hidden>
+                                            <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                            <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
                                         </div>
                                     </form>
                                 </div>

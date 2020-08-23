@@ -54,7 +54,7 @@
                             <div class="d-flex ml-auto">
                                 <div class="dropdown menu">
                                     <button type="button" class="d-flex align-items-center" data-toggle="dropdown">
-                                        <img class="avatar" src="images/user.png"/>
+                                        <imgc lass="avatar" src="images/user.png"/>
                                         <span><?php echo $logado; ?></span>
                                         <i class="fas fa-caret-down ml-2 mr-2"></i>
                                     </button>
@@ -103,8 +103,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" name="email" value="<?php echo $logado; ?>" id="insertdata" class="btn btn-primary">Adicionar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="submit" name="email" value="<?php echo $logado; ?>" id="insertdata" class="btn btn-primary btn-sm">Adicionar</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
                             </div>
                         </form>
                     </div>
