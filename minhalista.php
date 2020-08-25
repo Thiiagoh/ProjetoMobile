@@ -54,7 +54,7 @@
                             <div class="d-flex ml-auto">
                                 <div class="dropdown menu">
                                     <button type="button" class="d-flex align-items-center" data-toggle="dropdown">
-                                        <imgc lass="avatar" src="images/user.png"/>
+                                        <img class="avatar" src="images/user.png"/>
                                         <span><?php echo $logado; ?></span>
                                         <i class="fas fa-caret-down ml-2 mr-2"></i>
                                     </button>
@@ -84,15 +84,15 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nome</label>
-                                    <input class="form-control" type="text" name="nome_ep" placeholder="Informe um nome">
+                                    <input class="form-control" type="text" name="nome_ep" placeholder="Informe um nome" maxlength="45">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Temporada</label>
-                                    <input class="form-control" type="number" name="temp_ep" placeholder="Informe um número">
+                                    <input class="form-control" type="number" name="temp_ep" placeholder="Informe um número" max="999">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Episódio</label>
-                                    <input class="form-control" type="number" name="ep_ep" placeholder="Informe um número">
+                                    <input class="form-control" type="number" name="ep_ep" placeholder="Informe um número" max="999">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Tipo</label>
@@ -149,15 +149,15 @@
                                                             <div class="modal-body">
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Nome</label>
-                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'">
+                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Temporada</label>
-                                                                    <input class="form-control" type="number" name="temp_ep" value="'.$temp[$i].'">
+                                                                    <input class="form-control" type="number" name="temp_ep" value="'.$temp[$i].'" max="999">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Episódio</label>
-                                                                    <input class="form-control" type="number" name="ep_ep" value="'.$ep[$i].'">
+                                                                    <input class="form-control" type="number" name="ep_ep" value="'.$ep[$i].'" max="999">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Tipo</label>
@@ -228,15 +228,15 @@
                                                             <div class="modal-body">
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Nome</label>
-                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'">
+                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Temporada</label>
-                                                                    <input class="form-control" type="number" name="temp_ep" value="'.$temp[$i].'">
+                                                                    <input class="form-control" type="number" name="temp_ep" value="'.$temp[$i].'" max="999">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Episódio</label>
-                                                                    <input class="form-control" type="number" name="ep_ep" value="'.$ep[$i].'">
+                                                                    <input class="form-control" type="number" name="ep_ep" value="'.$ep[$i].'" max="999">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Tipo</label>

@@ -506,7 +506,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframeAne" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -538,7 +538,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframeGente" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -570,7 +570,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframeBrooklyn" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -602,7 +602,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframePaixao" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -634,7 +634,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframeVis" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -666,7 +666,7 @@
                                     </div>
                                     <form action="ratingadd.php" method="POST">
                                         <div class="modal-body">
-                                            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoIframeIlha" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                             <label for="exampleFormControlInput1">Descrição</label>
                                             <p>Seila</p>
                                             <label for="exampleFormControlInput1">Avalie</label>
@@ -697,13 +697,53 @@
             	scale: 1.1
             });
 
-            $('#myModal').on('show.bs.modal', function() {
-                $("#videoIframe")[0].src += "&autoplay=1";
+            $('#ModalAne').on('show.bs.modal', function() {
+                $("#videoIframeAne")[0].src += "&autoplay=1";
             });
-            $('#myModal').on('hidden.bs.modal', function(e) {
-                var rawVideoURL = $("#videoIframe")[0].src;
+            $('#ModalAne').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframeAne")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
-                $("#videoIframe")[0].src = rawVideoURL;
+                $("#videoIframeAne")[0].src = rawVideoURL;
+            });
+            $('#ModalGente').on('show.bs.modal', function() {
+                $("#videoIframeGente")[0].src += "&autoplay=1";
+            });
+            $('#ModalGente').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframeGente")[0].src;
+                rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
+                $("#videoIframeGente")[0].src = rawVideoURL;
+            });
+            $('#ModalBrooklyn').on('show.bs.modal', function() {
+                $("#videoIframeBrooklyn")[0].src += "&autoplay=1";
+            });
+            $('#ModalBrooklyn').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframeBrooklyn")[0].src;
+                rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
+                $("#videoIframeBrooklyn")[0].src = rawVideoURL;
+            });
+            $('#ModalPaixao').on('show.bs.modal', function() {
+                $("#videoIframePaixao")[0].src += "&autoplay=1";
+            });
+            $('#ModalPaixao').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframePaixao")[0].src;
+                rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
+                $("#videoIframePaixao")[0].src = rawVideoURL;
+            });
+            $('#ModalVis').on('show.bs.modal', function() {
+                $("#videoIframeVis")[0].src += "&autoplay=1";
+            });
+            $('#ModalVis').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframeVis")[0].src;
+                rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
+                $("#videoIframeVis")[0].src = rawVideoURL;
+            });
+            $('#ModalIlha').on('show.bs.modal', function() {
+                $("#videoIframeIlha")[0].src += "&autoplay=1";
+            });
+            $('#ModalIlha').on('hidden.bs.modal', function(e) {
+                var rawVideoURL = $("#videoIframeIlha")[0].src;
+                rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
+                $("#videoIframeIlha")[0].src = rawVideoURL;
             });
     	</script>
     	<script src="js/main.js"></script>
