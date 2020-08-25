@@ -446,5 +446,6 @@ a:hover > .imagem{
     color: #fff;
 }
 .close:hover{
+    color: #fff;
     opacity: .6;
 }
