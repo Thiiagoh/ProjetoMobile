@@ -48,11 +48,11 @@
                             $user = $row['senha'];
                             //Verificar se a senha do banco é igual ao que o usuário informou
                             if ($user=$row['senha'] == $senha AND $senha == $senha2){
-                                $sqlrem = "DELETE FROM favoritos WHERE clientes_email='$logado'";
+                                $sqlrem = "DELETE FROM filmes_series_favoritos WHERE clientes_email='$logado'";
                                 $sql = "DELETE FROM clientes WHERE email='$logado'";
-                                $sql2 = "DELETE FROM vistos WHERE clientes_email='$logado'";
-                                $sql3 = "DELETE FROM avaliacao WHERE clientes_email='$logado'";
-                                if ($conecta->query($sqlrem) AND $conecta->query($sql2) AND $conecta->query($sql) AND $conecta->query($sql3) === TRUE ){
+                                $sql2 = "DELETE FROM filmes_series_assistidos WHERE clientes_email='$logado'";
+                                $sql3 = "DELETE FROM filmes_series_avaliacao WHERE clientes_email='$logado'";
+                                if ($conecta->query($sql3) AND $conecta->query($sql2) AND $conecta->query($sqlrem) AND $conecta->query($sql) === TRUE ){
                                     echo "Usuário apagado com sucesso!<br><br>";
                                     echo '<a href="desconectar.php"><button class="login100-form-btn">Voltar</button></a>';}
                                 else{

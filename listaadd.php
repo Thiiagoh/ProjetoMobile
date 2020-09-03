@@ -7,7 +7,7 @@
     $tipo = $_POST['tipo'];
     $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
     
-    $add = "INSERT INTO vistos(clientes_email, nome, temp, ep, tipo) VALUES('$logado', '$nome_ep', '$temp_ep', '$ep_ep', '$tipo')";
+    $add = "INSERT INTO filmes_series_assistidos(clientes_email, nome, temp, ep, tipo) VALUES('$logado', '$nome_ep', '$temp_ep', '$ep_ep', '$tipo')";
     $conecta->query($add);
     header('location:minhalista.php');
 ?>

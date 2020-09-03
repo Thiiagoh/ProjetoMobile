@@ -84,7 +84,7 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nome</label>
-                                    <input class="form-control" type="text" name="nome_ep" placeholder="Informe um nome" maxlength="45">
+                                    <input class="form-control" type="text" name="nome_ep" placeholder="Informe um nome" maxlength="45" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Temporada</label>
@@ -123,7 +123,7 @@
                         <?php 
                             include_once "conectar.php";
                             $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
-                            $sql = mysqli_query($conecta, "select * from vistos where clientes_email ='$logado'");
+                            $sql = mysqli_query($conecta, "select * from filmes_series_assistidos where clientes_email ='$logado'");
                             $i=0;
                             while($exibe = mysqli_fetch_assoc($sql)){
                                 $id[$i] = $exibe["id"];
@@ -134,7 +134,7 @@
                                 $tipo[$i] = $exibe["tipo"];
                                 $editarMod[$i] = $i;
 
-                                $delet[$i] = "DELETE FROM vistos WHERE id='$id[$i]' AND clientes_email='$logado'";
+                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id='$id[$i]' AND clientes_email='$logado'";
                                 if ($tipo[$i] == "filme"){
                                     echo '  <div class="modal fade" id="'.$editarMod[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -149,7 +149,7 @@
                                                             <div class="modal-body">
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Nome</label>
-                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45">
+                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Temporada</label>
@@ -202,7 +202,7 @@
                     <hr>
                     <div class="row list mb-5">
                         <?php 
-                            $sql = mysqli_query($conecta, "select * from vistos where clientes_email ='$logado'");
+                            $sql = mysqli_query($conecta, "select * from filmes_series_assistidos where clientes_email ='$logado'");
                             while($exibe = mysqli_fetch_assoc($sql)){
                                 $id[$i] = $exibe["id"];
                                 $clientes_email[$i] = $exibe["clientes_email"];
@@ -212,7 +212,7 @@
                                 $tipo[$i] = $exibe["tipo"];
                                 $editarMod[$i] = $i;
 
-                                $delet[$i] = "DELETE FROM vistos WHERE id='$id[$i]' AND clientes_email='$logado'";
+                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id='$id[$i]' AND clientes_email='$logado'";
 
                                 if($tipo[$i] == "serie"){
                                     echo '  <div class="modal fade" id="'.$editarMod[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -228,7 +228,7 @@
                                                             <div class="modal-body">
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Nome</label>
-                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45">
+                                                                    <input class="form-control" type="text" name="nome_ep" value="'.$nome[$i].'" maxlength="45" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleFormControlInput1">Temporada</label>

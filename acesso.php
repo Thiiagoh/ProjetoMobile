@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="pt-br">
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Página - Inícial</title>
-	    <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
+        <link rel="stylesheet" href="assets/css/carousel.css">
         <link rel="stylesheet" type="text/css" href="css/util.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
         <?php 
             session_start();
             include_once "conectar.php";
@@ -77,41 +75,39 @@
                 <div class="container">
                     <div class="main-container">
                         <div class="container-fluid">
-                            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="6000">
-                                <div class="carousel-inner row w-100 mx-auto flex-nowrap" role="listbox">
-
-                                    <div class="carousel-item col-md-3 active">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/anne.jpg" alt="slide 1">
+                            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                                        <img id="img_car" src="images/img_filme/anne.jpg" class="img-fluid mx-auto d-block" alt="img1">
                                     </div>
-
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/gente_grande.jpg" alt="slide 2">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/gente_grande.jpg" class="img-fluid mx-auto d-block" alt="img2">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/anne.jpg" alt="slide 3">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/anne.jpg" class="img-fluid mx-auto d-block" alt="img3">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/gente_grande.jpg" alt="slide 4">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/gente_grande.jpg" class="img-fluid mx-auto d-block" alt="img4">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/anne.jpg" alt="slide 5">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/anne.jpg" class="img-fluid mx-auto d-block" alt="img5">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/gente_grande.jpg" alt="slide 6">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/gente_grande.jpg" class="img-fluid mx-auto d-block" alt="img6">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/anne.jpg" alt="slide 7">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/anne.jpg" class="img-fluid mx-auto d-block" alt="img7">
                                     </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img id="img_car" class="img-fluid mx-auto d-block" src="images/img_filme/gente_grande.jpg" alt="slide 8">
+                                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <img id="img_car" src="images/img_filme/gente_grande.jpg" class="img-fluid mx-auto d-block" alt="img8">
                                     </div>
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                                    <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                                <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                                    <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                                <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
@@ -122,7 +118,7 @@
                 <?php 
                     include_once "conectar.php";
                     $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
-                    $sql = mysqli_query($conecta, "select nome_filme, nota from avaliacao");
+                    $sql = mysqli_query($conecta, "select nome_filme, nota from filmes_series_avaliacao");
                     $i=0;
                     $notaAnne=0;
                     $gente_grande=0;
@@ -163,7 +159,14 @@
                 ?>
 
                 <div class="main-container">
-                    <h2 class="title mb-3">FILMES DO MOMENTO</h2>
+
+
+                    <div class="d-flex align-items-center mb-1">
+                        <div>
+                            <h2 class="title mb-1">FILMES DO MOMENTO</h2>
+                        </div>
+                    </div>
+                    
                     <div class="row list mb-5">
                         <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                             <div class="card border-dark">
@@ -497,30 +500,26 @@
         <div class="modal fade" id="ModalAne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Anne with an "E"</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframeAne" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                            <input type="" name="filme" value="Anne with an E" hidden>
-                                            <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                            <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Anne with an "E"</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframeAne" width="100%" height="100%" src="https://www.youtube.com/embed/bBervTlBurY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>O mundo de Green Gables que Anne tanto adora se expande com novas pessoas e emocionantes histórias de amor, perdas e amadurecimento.</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                    <input type="" name="filme" value="Anne with an E" hidden>
+                                    <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                    <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -529,30 +528,26 @@
         <div class="modal fade" id="ModalGente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Gente Grande</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframeGente" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Gente Grande" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Gente Grande</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframeGente" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>Seila</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                    <div class="modal-footer">
+                                        <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                        <input type="" name="filme" value="Gente Grande" hidden>
+                                        <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                        <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -561,30 +556,26 @@
         <div class="modal fade" id="ModalBrooklyn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Brooklyn Nine-Nine</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframeBrooklyn" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Brooklyn Nine-Nine" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Brooklyn Nine-Nine</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframeBrooklyn" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>Seila</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                    <div class="modal-footer">
+                                        <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                        <input type="" name="filme" value="Brooklyn Nine-Nine" hidden>
+                                        <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                        <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -593,30 +584,26 @@
         <div class="modal fade" id="ModalPaixao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Paixão Obsessiva</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframePaixao" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Paixão Obsessiva" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Paixão Obsessiva</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframePaixao" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>Seila</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                    <div class="modal-footer">
+                                        <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                        <input type="" name="filme" value="Paixão Obsessiva" hidden>
+                                        <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                        <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -625,30 +612,26 @@
         <div class="modal fade" id="ModalVis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Vis a Vis</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframeVis" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Vis a Vis" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Vis a Vis</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframeVis" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>Seila</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                    <div class="modal-footer">
+                                        <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                        <input type="" name="filme" value="Vis a Vis" hidden>
+                                        <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                        <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -657,46 +640,40 @@
         <div class="modal fade" id="ModalIlha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="fill">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ilha do Medo</h5>
-                                    </div>
-                                    <form action="ratingadd.php" method="POST">
-                                        <div class="modal-body">
-                                            <iframe id="videoIframeIlha" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                                            <label for="exampleFormControlInput1">Descrição</label>
-                                            <p>Seila</p>
-                                            <label for="exampleFormControlInput1">Avalie</label>
-                                            <div class="modal-footer">
-                                                <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                                <input type="" name="filme" value="Ilha do Medo" hidden>
-                                                <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
-                                                <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="item active">
+                        <div class="fill">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ilha do Medo</h5>
                             </div>
+                            <form action="ratingadd.php" method="POST">
+                                <div class="modal-body">
+                                    <iframe id="videoIframeIlha" width="100%" height="100%" src="https://www.youtube.com/embed/47hHTW4QLjg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <label for="exampleFormControlInput1">Descrição</label>
+                                    <p>Seila</p>
+                                    <label for="exampleFormControlInput1">Avalie</label>
+                                    <div class="modal-footer">
+                                        <input type="" name="email" value="<?php echo $logado; ?>" hidden>
+                                        <input type="" name="filme" value="Ilha do Medo" hidden>
+                                        <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
+                                        <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script language="javascript" type="text/javascript" src="js/javascript.js"></script>
-        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    	<script src="vendor/bootstrap/js/popper.js"></script>
-    	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    	<script src="vendor/select2/select2.min.js"></script>
-    	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-    	<script>
-            $('.js-tilt').tilt({
-            	scale: 1.1
-            });
-
+        <!-- Javascript -->
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script>
             $('#ModalAne').on('show.bs.modal', function() {
                 $("#videoIframeAne")[0].src += "&autoplay=1";
             });
@@ -745,9 +722,6 @@
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeIlha")[0].src = rawVideoURL;
             });
-    	</script>
-    	<script src="js/main.js"></script>
-
-
+        </script>
     </body>
 </html>

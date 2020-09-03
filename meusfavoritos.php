@@ -81,7 +81,7 @@
                         <?php 
                             include_once "conectar.php";
                             $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco); 
-                            $sql = mysqli_query($conecta, "select * from favoritos where clientes_email ='$logado'");
+                            $sql = mysqli_query($conecta, "select * from filmes_series_favoritos where clientes_email ='$logado'");
                             $i=0;
                             while($exibe = mysqli_fetch_assoc($sql)){
                                 $nome[$i] = $exibe["filmes"];
@@ -89,7 +89,7 @@
                                 $data[$i] = $exibe["data"];
                                 $genero[$i] = $exibe["genero"];
 
-                                $delet[$i] = "DELETE FROM favoritos WHERE filmes='$nome[$i]' AND clientes_email='$logado'";    
+                                $delet[$i] = "DELETE FROM filmes_series_favoritos WHERE filmes='$nome[$i]' AND clientes_email='$logado'";    
                                 echo '<div class="col-6 col-sm-4 col-md-3 col-lg-2">';
                                 echo '  <div class="card">';
                                 echo '      <img src="images/img_filme/'.$img[$i].'.jpg" class="card-img-top mb-3"/>';
