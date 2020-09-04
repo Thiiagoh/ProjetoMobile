@@ -8,6 +8,12 @@
     $opcao = $_POST['opcao'];
 
     $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
+    $ameaca = "INSERT INTO filmes_series_favoritos(filmes, nome, data, genero, clientes_email) VALUES('$nome', '$imagem', '$data', '$genero', '$logado')";
+    $conecta->query($ameaca);
+    unset($ameaca);
+    header('location:acesso.php');
+
+    /*
     switch ($opcao) {
         case 0:
             $ameaca = "INSERT INTO filmes_series_favoritos(filmes, nome, data, genero, clientes_email) VALUES('$nome', '$imagem', '$data', '$genero', '$logado')";
@@ -81,5 +87,5 @@
             unset($opcao);
             header('location:acesso.php');
             break;
-    }
+    }*/
 ?>
