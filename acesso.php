@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Página - Inícial</title>
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -38,16 +39,30 @@
                         <div class="collapse navbar-collapse" id="navbarsExample07">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="acesso.php">Início <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="acesso.php">Início <span class="sr-only">(current)</span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="meusfavoritos.php">Assistir Mais Tarde</a>
+                                    <a class="nav-link" href="meusfavoritos.php">Assistir Mais Tarde
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="minhalista.php">Minha Lista</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                    <a class="nav-link" href="minhalista.php">Minha Lista
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                             </ul>
                             <div class="d-flex ml-auto">
@@ -490,7 +505,7 @@
                     </div>
                     <div class="d-flex align-items-center mb-1">
                         <div>
-                            <h2 class="title mb-1">SÉRIES MAIS POPULARES ATUALMENTE</h2>
+                            <h2 class="title mb-1">SÉRIES/FILMES MAIS POPULARES ATUALMENTE</h2>
                         </div>
                     </div>
                     <div class="row list mb-5">

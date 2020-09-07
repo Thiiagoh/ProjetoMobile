@@ -39,16 +39,30 @@
                         <div class="collapse navbar-collapse" id="navbarsExample07">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="acesso.php">Início <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="acesso.php">Início <span class="sr-only">(current)</span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="meusfavoritos.php">Assistir Mais Tarde</a>
+                                    <a class="nav-link" href="meusfavoritos.php">Assistir Mais Tarde
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="minhalista.php">Minha Lista</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                    <a class="nav-link" href="minhalista.php">Minha Lista
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
                                 </li>
                             </ul>
                             <div class="d-flex ml-auto">
