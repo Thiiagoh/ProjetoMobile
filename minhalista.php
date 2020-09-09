@@ -124,13 +124,17 @@
                     </div>
                 </div>
             </div>
-
             
+            <div class="btn-add">
+                <button class="float-button" href="#" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
 
             <div class="main d-flex flex-column">
                 <div class="margin-top"></div>
                 <div class="main-container">
-                    <h2 class="title mb-3">MINHA LISTA<h2 class="title mb-1"><a href="#" data-toggle="modal" data-target="#exampleModal">Adicionar</a></h2></h2>
+                    <h2 class="title mb-3">MINHA LISTA</h2>
                     <h2 class="title mb-1">Filmes</h2>
                     <hr>
                     <div class="row list mb-5"> 
