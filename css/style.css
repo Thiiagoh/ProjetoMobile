@@ -308,7 +308,7 @@ button{
     border: none;
     color: #fff;
     padding: 2px;
-    background-color: rgba(0,0,0,.7);
+    background-color: #181818;
 }
 
 .top-bar .menu:hover > .dropdown-menu, .top-bar .menu:hover > button {
@@ -317,7 +317,7 @@ button{
 } 
 
 .top-bar .menu button:hover{
-    background-color: #282828;
+    background-color: #202020;
 }
 
 .top-bar .menu button span{
@@ -442,4 +442,31 @@ a:hover > .imagem{
 .close:hover{
     color: #fff;
     opacity: .6;
+}
+
+.dropdown-item .active{
+    color: #000;
+    background-color: #262626;
+}
+
+.float-button{
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    right: 50px;
+}
+
+.btn-add .float-button{
+    color: #fff;
+    background-color: #353535;
+    border-radius: 50px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    border: white;
+}
+
+.btn-add .float-button:hover{
+    background-color: #303030;
 }
