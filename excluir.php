@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
         <link rel="stylesheet" type="text/css" href="css/util.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <?php 
             session_start();
             include_once "conectar.php";
@@ -43,8 +44,8 @@
                             echo 'Nenhum usuário encontrado!<br><br>';
                             echo '<a href="excluirConta.php"><button class="login100-form-btn">Voltar</button></a>';
                         }else{
-                            $row = $resultado = $conecta->query($tenta_achar);
-                            $row = $resultado->fetch_assoc();
+                            $row = $resultados = $conecta->query($tenta_achar);
+                            $row = $resultados->fetch_assoc();
                             $user = $row['senha'];
                             //Verificar se a senha do banco é igual ao que o usuário informou
                             if ($user=$row['senha'] == $senha AND $senha == $senha2){
