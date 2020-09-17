@@ -151,7 +151,7 @@ button{
     margin-bottom: 15px;
     padding: 20px 20px 16px;
     background-color: #262626;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 .main .list .col-12{
@@ -387,6 +387,8 @@ a:hover > .imagem{
 
 #img_car{
     border-radius: 10px;
+    width: 154px;
+    height: 231px;
 }
 
 #img_car:hover{
