@@ -144,17 +144,16 @@
                             $sql = mysqli_query($conecta, "select * from filmes_series_assistidos where clientes_email ='$logado'");
                             $i=0;
                             while($exibe = mysqli_fetch_assoc($sql)){
-                                $id[$i] = $exibe["id"];
+                                $id[$i] = $exibe["id_assistidos"];
                                 $clientes_email[$i] = $exibe["clientes_email"];
                                 $nome[$i] = $exibe["nome"];
                                 $temp[$i] = $exibe["temp"];
                                 $ep[$i] = $exibe["ep"];
                                 $tipo[$i] = $exibe["tipo"];
-                                $editarMod[$i] = $i;
 
-                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id='$id[$i]' AND clientes_email='$logado'";
+                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id_assistidos='$id[$i]' AND clientes_email='$logado'";
                                 if ($tipo[$i] == "filme"){
-                                    echo '  <div class="modal fade" id="'.$editarMod[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    echo '  <div class="modal fade" id="'.$id[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -205,7 +204,7 @@
                                                         <p class="card-text">Episódio: '.$ep[$i].'</p>
                                                     </div>
                                                     <div class="btn-update">
-                                                        <button data-toggle="modal" data-target="#'.$editarMod[$i].'">
+                                                        <button data-toggle="modal" data-target="#'.$id[$i].'">
                                                             <i class="fas fa-edit"></i>
                                                         </button>
                                                     </div>
@@ -222,18 +221,17 @@
                         <?php 
                             $sql = mysqli_query($conecta, "select * from filmes_series_assistidos where clientes_email ='$logado'");
                             while($exibe = mysqli_fetch_assoc($sql)){
-                                $id[$i] = $exibe["id"];
+                                $id[$i] = $exibe["id_assistidos"];
                                 $clientes_email[$i] = $exibe["clientes_email"];
                                 $nome[$i] = $exibe["nome"];
                                 $temp[$i] = $exibe["temp"];
                                 $ep[$i] = $exibe["ep"];
                                 $tipo[$i] = $exibe["tipo"];
-                                $editarMod[$i] = $i;
 
-                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id='$id[$i]' AND clientes_email='$logado'";
+                                $delet[$i] = "DELETE FROM filmes_series_assistidos WHERE id_assistidos='$id[$i]' AND clientes_email='$logado'";
 
                                 if($tipo[$i] == "serie"){
-                                    echo '  <div class="modal fade" id="'.$editarMod[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    echo '  <div class="modal fade" id="'.$id[$i].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -284,7 +282,7 @@
                                                         <p class="card-text">Episódio: '.$ep[$i].'</p>
                                                     </div>
                                                     <div class="btn-update">
-                                                        <button data-toggle="modal" data-target="#'.$editarMod[$i].'">
+                                                        <button data-toggle="modal" data-target="#'.$id[$i].'">
                                                             <i class="fas fa-edit"></i>
                                                         </button>
                                                     </div>

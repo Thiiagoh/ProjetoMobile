@@ -11,7 +11,7 @@
 	switch ($opcao) {
 	    case 0:
     		$conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
-    		$add = "UPDATE filmes_series_assistidos SET nome='$nome_ep', temp='$temp_ep', ep='$ep_ep', tipo='$tipo' WHERE id='$id'";
+    		$add = "UPDATE filmes_series_assistidos SET nome='$nome_ep', temp='$temp_ep', ep='$ep_ep', tipo='$tipo' WHERE id_assistidos='$id'";
     		$conecta->query($add);
 	    	unset($opcao);
 	    	header('location:minhalista.php');

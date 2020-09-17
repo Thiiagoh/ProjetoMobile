@@ -95,15 +95,16 @@
                         <?php 
                             include_once "conectar.php";
                             $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco); 
-                            $sql = mysqli_query($conecta, "select * from filmes_series_favoritos where clientes_email ='$logado'");
+                            $sql = mysqli_query($conecta, "select * from filmes_series_assistir_mais_tarde fa inner join filmes_series fs on fa.id_filme_serie = fs.id_filme_serie where clientes_email ='$logado'");
                             $i=0;
                             while($exibe = mysqli_fetch_assoc($sql)){
-                                $nome[$i] = $exibe["filmes"];
-                                $img[$i] = $exibe["nome"];
+                                $nome[$i] = $exibe["titulo"];
+                                $img[$i] = $exibe["imagem"];
                                 $data[$i] = $exibe["data"];
                                 $genero[$i] = $exibe["genero"];
+                                $id[$i] = $exibe["id_filme_serie"];
 
-                                $delet[$i] = "DELETE FROM filmes_series_favoritos WHERE filmes='$nome[$i]' AND clientes_email='$logado'";    
+                                $delet[$i] = "DELETE FROM filmes_series_assistir_mais_tarde WHERE id_filme_serie='$id[$i]' AND clientes_email='$logado'";    
                                 echo '<div class="col-6 col-sm-4 col-md-3 col-lg-2">';
                                 echo '  <div class="card">';
                                 echo '      <img src="images/img_filme/'.$img[$i].'.jpg" class="card-img-top mb-3"/>';
@@ -116,7 +117,6 @@
                                                 <form action="favoritosrem.php" method="POST">
                                                     <button name="email" value="'.$logado.'" class="d-flex justify-content-center align-items-center">
                                                         <input type="" name="remover" value="'.$delet[$i].'" hidden>
-                                                        <input type="" name="opcao" value="1" hidden>
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>

@@ -3,7 +3,7 @@
     $nome_servidor = "localhost";
     $nome_usuario = "root";
     $senhaBanco = "";
-    $nome_banco = "dados";
+    $nome_banco = "dadosfilmeseries";
     $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
     /*
     $nome_servidor = "sql202.unaux.com";

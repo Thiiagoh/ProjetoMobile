@@ -92,6 +92,30 @@
                         <div class="container-fluid">
                             <div id="carousel-example" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner row w-100 mx-auto" role="listbox">
+
+                                    <?php 
+                                        include_once "conectar.php";
+                                        $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
+                                        $carry = mysqli_query($conecta, "select * from filmes_series");
+                                        $i=0;
+                                        $ativar[$i]='';
+                                        
+                                        //Loop de todos os livros
+                                        while($exibe = mysqli_fetch_assoc($carry)){
+                                            $imagem[$i] = $exibe["imagem"];
+                                            if ($ativar[0] == '')
+                                                $ativar[$i] = 'active';
+                                            else
+                                                $ativar[$i] = '';
+                                            echo '  <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 '.$ativar[$i].'">
+                                                        <img id="img_car" src="images/img_filme/'.$imagem[$i].'.jpg" class="card border-dark card-img-top img-fluid mx-auto d-block" data-toggle="modal" data-target="#Modal'.$imagem[$i].'" alt="img1">
+                                                    </div>';
+                                        $i++;
+                                        }
+                                    ?>
+
+
+                                    <!--
                                     <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
                                         <img id="img_car" src="images/img_filme/anne.jpg" class="img-fluid mx-auto d-block" alt="img1">
                                     </div>
@@ -115,7 +139,9 @@
                                     </div>
                                     <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                                         <img id="img_car" src="images/img_filme/gente_grande.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                                    </div>
+                                    </div>-->
+
+
                                 </div>
                                 <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -129,645 +155,161 @@
                         </div>
                     </div>
                 </div>
-
-                <?php 
-                    include_once "conectar.php";
-                    $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
-                    $sql = mysqli_query($conecta, "select nome_filme, nota from filmes_series_avaliacao");
-                    $i=0;
-                    //Variaveis filmes
-                    $notaAnne=0;
-                    $gente_grande=0;
-                    $notaBrooklyn=0;
-                    $notaPaixao=0;
-                    $notaVis=0;
-                    $notaIlha=0;
-                    $notaRogue=0;
-                    $notaBilleted=0;
-                    $notaTenet=0;
-                    //Variaveis series
-                    $notaDark=0;
-                    $notaTheBoys=0;
-                    $notaLucifer=0;
-                    $notaAmeaca=0;
-                    $notaHomemInvi=0;
-                    $notaDoisIrmao=0;
-                    $notaPoco=0;
-                    $notaSimpsons=0;
-                    $notaMilagre=0;
-
-                    while($exibe = mysqli_fetch_assoc($sql)){
-                        $filme[$i] = $exibe['nome_filme'];
-                        $nota[$i] = $exibe['nota'];
-                        //COMPUTAR NOTAS DE FILMES
-                        if ($filme[$i] == 'Anne with an E' AND $nota[$i] == 1)
-                            $notaAnne++;
-                        else if ($filme[$i] == 'Anne with an E' AND $nota[$i] == 0)
-                            $notaAnne--;
-                        else if ($filme[$i] == 'Gente Grande' AND $nota[$i] == 1)
-                            $gente_grande++;
-                        else if ($filme[$i] == 'Gente Grande' AND $nota[$i] == 0)
-                            $gente_grande--;
-                        else if ($filme[$i] == 'Brooklyn Nine-Nine' AND $nota[$i] == 1)
-                            $notaBrooklyn++;
-                        else if ($filme[$i] == 'Brooklyn Nine-Nine' AND $nota[$i] == 0)
-                            $notaBrooklyn--;
-                        else if ($filme[$i] == 'Paixão Obsessiva' AND $nota[$i] == 1)
-                            $notaPaixao++;
-                        else if ($filme[$i] == 'Paixão Obsessiva' AND $nota[$i] == 0)
-                            $notaPaixao--;
-                        else if ($filme[$i] == 'Vis a Vis' AND $nota[$i] == 1)
-                            $notaVis++;
-                         else if ($filme[$i] == 'Vis a Vis' AND $nota[$i] == 0)
-                            $notaVis--;
-                        else if ($filme[$i] == 'Ilha do Medo' AND $nota[$i] == 1)
-                            $notaIlha++;
-                        else if ($filme[$i] == 'Ilha do Medo' AND $nota[$i] == 0)
-                            $notaIlha--;
-                        else if ($filme[$i] == 'Rogue' AND $nota[$i] == 1)
-                            $notaRogue++;
-                        else if ($filme[$i] == 'Rogue' AND $nota[$i] == 0)
-                            $notaRogue--;
-                        else if ($filme[$i] == 'Bill & Ted' AND $nota[$i] == 1)
-                            $notaBilleted++;
-                        else if ($filme[$i] == 'Bill & Ted' AND $nota[$i] == 0)
-                            $notaBilleted--;
-                        else if ($filme[$i] == 'Tenet' AND $nota[$i] == 1)
-                            $notaTenet++;
-                        else if ($filme[$i] == 'Tenet' AND $nota[$i] == 0)
-                            $notaTenet--;
-                        //COMPUTAR NOTAS DE SERIES
-                        else if ($filme[$i] == 'Dark' AND $nota[$i] == 1)
-                            $notaDark++;
-                        else if ($filme[$i] == 'Dark' AND $nota[$i] == 0)
-                            $notaDark--;
-                        else if ($filme[$i] == 'TheBoys' AND $nota[$i] == 1)
-                            $notaTheBoys++;
-                        else if ($filme[$i] == 'TheBoys' AND $nota[$i] == 0)
-                            $notaTheBoys--;
-                        else if ($filme[$i] == 'Lucifer' AND $nota[$i] == 1)
-                            $notaLucifer++;
-                        else if ($filme[$i] == 'Lucifer' AND $nota[$i] == 0)
-                            $notaLucifer--;
-                        else if ($filme[$i] == 'Ameaca' AND $nota[$i] == 1)
-                            $notaAmeaca++;
-                        else if ($filme[$i] == 'Ameaca' AND $nota[$i] == 0)
-                            $notaAmeaca--;
-                        else if ($filme[$i] == 'HomemInvi' AND $nota[$i] == 1)
-                            $notaHomemInvi++;
-                        else if ($filme[$i] == 'HomemInvi' AND $nota[$i] == 0)
-                            $notaHomemInvi--;
-                        else if ($filme[$i] == 'DoisIrmao' AND $nota[$i] == 1)
-                            $notaDoisIrmao++;
-                        else if ($filme[$i] == 'DoisIrmao' AND $nota[$i] == 0)
-                            $notaDoisIrmao--;
-                        else if ($filme[$i] == 'Poco' AND $nota[$i] == 1)
-                            $notaPoco++;
-                        else if ($filme[$i] == 'Poco' AND $nota[$i] == 0)
-                            $notaPoco--;
-                        else if ($filme[$i] == 'Simpsons' AND $nota[$i] == 1)
-                            $notaSimpsons++;
-                        else if ($filme[$i] == 'Simpsons' AND $nota[$i] == 0)
-                            $notaSimpsons--;
-                        else if ($filme[$i] == 'Milagre' AND $nota[$i] == 1)
-                            $notaMilagre++;
-                        else if ($filme[$i] == 'Milagre' AND $nota[$i] == 0)
-                            $notaMilagre--;
-                        
-                        $i++;
-                    }
-                ?>
-
                 <div class="main-container">
-
-
                     <div class="d-flex align-items-center mb-1">
                         <div>
-                            <h2 class="title mb-1">FILMES LANÇAMENTOS</h2>
+                            <h2 class="title mb-3">FILMES LANÇAMENTOS</h2>
                         </div>
                     </div>
-                    
-                    <div class="row list mb-5">
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaTenet>0 || $notaTenet == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalTenet" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaTenet>0 || $notaTenet == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/tenet.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalTenet"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Tenet</h5>
-                                    <p class="card-text">Ação/Ficção Científica</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Tenet" hidden>
-                                            <input type="" name="genero" value="Ação/Ficção Científica" hidden>
-                                            <input type="" name="imagem" value="tenet" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row list mb-3">
+                        <?php 
+                            include_once "conectar.php";
+                            $conecta = mysqli_connect($nome_servidor, $nome_usuario, $senhaBanco, $nome_banco);
+                            $carry = mysqli_query($conecta, "select * from filmes_series");
+                            $i=0;
+                            //Loop de todos os livros
+                            while($exibe = mysqli_fetch_assoc($carry)){
+                                $titulo[$i] = $exibe["titulo"];
+                                $data[$i] = $exibe["data"];
+                                $genero[$i] = $exibe["genero"];
+                                $tipo[$i] = $exibe["tipo"];
+                                $imagem[$i] = $exibe["imagem"];
+                                $id_filme[$i] = $exibe["id_filme_serie"];
 
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaBilleted>0 || $notaBilleted == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalBilleted" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaBilleted>0 || $notaBilleted == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/billeted.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalBilleted"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Bill & Ted</h5>
-                                    <p class="card-text">Ficção Científica</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Bill & Ted" hidden>
-                                            <input type="" name="genero" value="Ficção Científica" hidden>
-                                            <input type="" name="imagem" value="billeted" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                if ($tipo[$i] == "filme"){
+                                    $avaliation = mysqli_query($conecta, 'select * FROM filmes_series_avaliacao fa inner join filmes_series fs on fa.id_filme_serie = fs.id_filme_serie where fa.id_filme_serie = '.$id_filme[$i].'');
+                                    $cont=0;
+                                    $x=0;
+                                    //loop para as avaliações de cada filme
+                                    while($votos[$i] = mysqli_fetch_assoc($avaliation)){
+                                        $nota[$x] = $votos[$i]["nota"];
+                                        //COMPUTAR NOTAS DE FILMES
+                                        if ($nota[$x] == "1")
+                                            $cont++;
+                                        else if ($nota[$x] == "0")
+                                            $cont--;
+                                        $x++;
+                                    }
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaRogue>0 || $notaRogue == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalRogue" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaRogue>0 || $notaRogue == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/rogue.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalRogue"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Rogue</h5>
-                                    <p class="card-text">Ação</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Rogue" hidden>
-                                            <input type="" name="genero" value="Ação" hidden>
-                                            <input type="" name="imagem" value="rogue" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                    //Se for positivo ficara BOM negativo RUIM
+                                    if($cont < 0){
+                                        $colorR = 'FF0000';
+                                        $icon = 'down';
+                                        $cont = ''; // para não aparecer numeros negativos.
+                                    }
+                                    else{
+                                        $icon = 'up';
+                                        $colorR = '00FF00';
+                                    }
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaAnne>0 || $notaAnne == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalAne" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaAnne>0 || $notaAnne == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/anne.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalAne"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"><?php echo $notaAnne?>Anne with an "E"</h5>
-                                    <p class="card-text">Drama/Romance</p>
-                                    <p class="card-text">2017</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Anne with an E" hidden>
-                                            <input type="" name="genero" value="Drama/Romance" hidden>
-                                            <input type="" name="imagem" value="anne" hidden>
-                                            <input type="" name="lancamento" value="2017" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($gente_grande>0 || $gente_grande == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalGente" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($gente_grande>0 || $gente_grande == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/gente_grande.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalGente"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"><?php echo $gente_grande?>Gente Grande</h5>
-                                    <p class="card-text">Comédia</p>
-                                    <p class="card-text">2010</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Gente Grande" hidden>
-                                            <input type="" name="genero" value="Comédia" hidden>
-                                            <input type="" name="imagem" value="gente_grande" hidden>
-                                            <input type="" name="lancamento" value="2010" hidden>
-                                            <input type="" name="opcao" value="1" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaBrooklyn>0 || $notaBrooklyn == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalBrooklyn" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaBrooklyn>0 || $notaBrooklyn == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/brooklyn.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalBrooklyn"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Brooklyn Nine-Nine</h5>
-                                    <p class="card-text">Comédia/Crime</p>
-                                    <p class="card-text">2019</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Brooklyn Nine-Nine" hidden>
-                                            <input type="" name="genero" value="Comédia/Crime" hidden>
-                                            <input type="" name="imagem" value="brooklyn" hidden>
-                                            <input type="" name="lancamento" value="2019" hidden>
-                                            <input type="" name="opcao" value="2" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                          
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaPaixao>0 || $notaPaixao == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalPaixao" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaPaixao>0 || $notaPaixao == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                    <img src="images/img_filme/paixao.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalPaixao"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Paixão Obsessiva</h5>
-                                    <p class="card-text">Ação</p>
-                                    <p class="card-text">2017</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Paixão Obsessiva" hidden>
-                                            <input type="" name="genero" value="Ação" hidden>
-                                            <input type="" name="imagem" value="paixao" hidden>
-                                            <input type="" name="lancamento" value="2017" hidden>
-                                            <input type="" name="opcao" value="3" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaVis>0 || $notaVis == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalVis" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaVis>0 || $notaVis == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/vis.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalVis"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Vis a Vis</h5>
-                                    <p class="card-text">Drama</p>
-                                    <p class="card-text">2015</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Vis a Vis" hidden>
-                                            <input type="" name="genero" value="Drama" hidden>
-                                            <input type="" name="imagem" value="vis" hidden>
-                                            <input type="" name="lancamento" value="2015" hidden>
-                                            <input type="" name="opcao" value="4" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaIlha>0 || $notaIlha == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalIlha" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaIlha>0 || $notaIlha == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/ilha.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalIlha"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Ilha do medo</h5>
-                                    <p class="card-text">Ação</p>
-                                    <p class="card-text">2010</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Ilha do Medo" hidden>
-                                            <input type="" name="genero" value="Ação" hidden>
-                                            <input type="" name="imagem" value="ilha" hidden>
-                                            <input type="" name="lancamento" value="2010" hidden>
-                                            <input type="" name="opcao" value="5" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                    echo '<div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                            <div class="card border-dark">
+                                                <div class="btn-rating">
+                                                    <button style="color: #fff;background-color: #'.$colorR.';" data-toggle="modal" data-target="#Modal'.$imagem[$i].'" class="d-flex justify-content-center align-items-center">
+                                                        <i class="fas fa-thumbs-'.$icon.'"></i>
+                                                    </button>
+                                                </div>
+                                                <img src="images/img_filme/'.$imagem[$i].'.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#Modal'.$imagem[$i].'"/>
+                                                <div class="card-body p-0">
+                                                    <h5 class="card-title">'.$titulo[$i].'</h5>
+                                                    <p class="card-text">'.$genero[$i].'</p>
+                                                    <p class="card-text">'.$data[$i].'</p>
+                                                </div>
+                                                <div class="btn-play">
+                                                    <form action="favoritosadd.php" method="POST">
+                                                        <button name="email" value="'.$logado.'" class="d-flex justify-content-center align-items-center">
+                                                            <input type="" name="filme" value="'.$id_filme[$i].'" hidden>
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                }
+                                $i++;
+                            }
+                        ?>
                     </div>
                     <div class="d-flex align-items-center mb-1">
                         <div>
-                            <h2 class="title mb-1">SÉRIES/FILMES MAIS POPULARES ATUALMENTE</h2>
+                            <h2 class="title mb-3">SÉRIES/FILMES MAIS POPULARES ATUALMENTE</h2>
                         </div>
                     </div>
-                    <div class="row list mb-5">
+                    <div class="row list mb-4">
+                        <?php 
+                            $carry = mysqli_query($conecta, "select * from filmes_series");
+                            $i=0;
+                            //Loop de todos os livros
+                            while($exibe = mysqli_fetch_assoc($carry)){
+                                $titulo[$i] = $exibe["titulo"];
+                                $data[$i] = $exibe["data"];
+                                $genero[$i] = $exibe["genero"];
+                                $tipo[$i] = $exibe["tipo"];
+                                $imagem[$i] = $exibe["imagem"];
+                                $id_filme[$i] = $exibe["id_filme_serie"];
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaLucifer>0 || $notaLucifer == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalLucifer" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaLucifer>0 || $notaLucifer == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/lucifer.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalLucifer"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Lucifer</h5>
-                                    <p class="card-text">Fantasia/Ficção Científica</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Lucifer" hidden>
-                                            <input type="" name="genero" value="Fantasia/Ficção Científica" hidden>
-                                            <input type="" name="imagem" value="lucifer" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaTheBoys>0 || $notaTheBoys == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalTheBoys" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaTheBoys>0 || $notaTheBoys == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/theBoys.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalTheBoys"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">The Boys</h5>
-                                    <p class="card-text">Ação/Ficção Científica</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="The Boys" hidden>
-                                            <input type="" name="genero" value="Ação/Ficção Científica" hidden>
-                                            <input type="" name="imagem" value="theBoys" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                if ($tipo[$i] == "serie"){
+                                    $avaliation = mysqli_query($conecta, 'select * FROM filmes_series_avaliacao fa inner join filmes_series fs on fa.id_filme_serie = fs.id_filme_serie where fa.id_filme_serie = '.$id_filme[$i].'');
+                                    $cont=0;
+                                    $x=0;
+                                    //loop para as avaliações de cada filme
+                                    while($votos[$i] = mysqli_fetch_assoc($avaliation)){
+                                        $nota[$x] = $votos[$i]["nota"];
+                                        //COMPUTAR NOTAS DE FILMES
+                                        if ($nota[$x] == "1")
+                                            $cont++;
+                                        else if ($nota[$x] == "0")
+                                            $cont--;
+                                        $x++;
+                                    }
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaDark>0 || $notaDark == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalDark" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaDark>0 || $notaDark == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/dark.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalDark"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Dark</h5>
-                                    <p class="card-text">Fantasia/Ficção Científica</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Dark" hidden>
-                                            <input type="" name="genero" value="Fantasia/Ficção Científica" hidden>
-                                            <input type="" name="imagem" value="dark" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                    //Se for positivo ficara BOM negativo RUIM
+                                    if($cont < 0){
+                                        $colorR = 'FF0000';
+                                        $icon = 'down';
+                                        $cont = ''; // para não aparecer numeros negativos.
+                                    }
+                                    else{
+                                        $icon = 'up';
+                                        $colorR = '00FF00';
+                                    }
 
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaAmeaca>0 || $notaAmeaca == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalAmeaca" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaAmeaca>0 || $notaAmeaca == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/ameaca.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalAmeaca"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Ameaça Profunda</h5>
-                                    <p class="card-text">Terror/Ficção/Ação</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Ameaça Profunda" hidden>
-                                            <input type="" name="genero" value="Terror/Ficção/Açã" hidden>
-                                            <input type="" name="imagem" value="ameaca" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaHomemInvi>0 || $notaHomemInvi == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalHomemInvi" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaHomemInvi>0 || $notaHomemInvi == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/homem.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalHomemInvi"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Homem Invisível</h5>
-                                    <p class="card-text">Suspense/Ficção/Terror</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Homem Invisível" hidden>
-                                            <input type="" name="genero" value="Suspense/Ficção/Terror" hidden>
-                                            <input type="" name="imagem" value="homem" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaDoisIrmao>0 || $notaDoisIrmao == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalDoisIrmao" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaDoisIrmao>0 || $notaDoisIrmao == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/dois.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalDoisIrmao"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Dois Irmãos Uma Jornada Fantástica</h5>
-                                    <p class="card-text">Animação</p>
-                                    <p class="card-text">2020</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Dois Irmãos Uma Jornada Fantástica" hidden>
-                                            <input type="" name="genero" value="Animação" hidden>
-                                            <input type="" name="imagem" value="dois" hidden>
-                                            <input type="" name="lancamento" value="2020" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaPoco>0 || $notaPoco == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalPoco" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaPoco>0 || $notaPoco == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/poco.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalPoco"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">O poço</h5>
-                                    <p class="card-text">Drama</p>
-                                    <p class="card-text">2019</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="O poço" hidden>
-                                            <input type="" name="genero" value="Drama" hidden>
-                                            <input type="" name="imagem" value="poco" hidden>
-                                            <input type="" name="lancamento" value="2019" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaSimpsons>0 || $notaSimpsons == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalSimpsons" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaSimpsons>0 || $notaSimpsons == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/sim.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalSimpsons"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Simpsons</h5>
-                                    <p class="card-text">Animação/Comédia</p>
-                                    <p class="card-text">2019</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Simpsons" hidden>
-                                            <input type="" name="genero" value="Animação/Comédia" hidden>
-                                            <input type="" name="imagem" value="sim" hidden>
-                                            <input type="" name="lancamento" value="2019" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
-                       
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card border-dark">
-                                <div class="btn-rating">
-                                    <button style="color: #fff;background-color: #<?php if($notaMilagre>0 || $notaMilagre == 0){echo '00FF00';} else{ echo 'FF0000';}?>" data-toggle="modal" data-target="#ModalMilagre" class="d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-thumbs-<?php if($notaMilagre>0 || $notaMilagre == 0){echo 'up';} else{ echo 'down';}?>"></i>
-                                    </button>
-                                </div>
-                                <img src="images/img_filme/milagre.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#ModalMilagre"/>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title">Milagre na Cela 7</h5>
-                                    <p class="card-text">Drama/Comédia</p>
-                                    <p class="card-text">2019</p>
-                                </div>
-                                <div class="btn-play">
-                                    <form action="favoritosadd.php" method="POST">
-                                        <button name="email" value="<?php echo $logado; ?>" class="d-flex justify-content-center align-items-center">
-                                            <input type="" name="filme" value="Milagre na Cela 7" hidden>
-                                            <input type="" name="genero" value="Drama/Comédia" hidden>
-                                            <input type="" name="imagem" value="milagre" hidden>
-                                            <input type="" name="lancamento" value="2019" hidden>
-                                            <input type="" name="opcao" value="0" hidden>
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                    echo '<div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                            <div class="card border-dark">
+                                                <div class="btn-rating">
+                                                    <button style="color: #fff;background-color: #'.$colorR.';" data-toggle="modal" data-target="#Modal'.$imagem[$i].'" class="d-flex justify-content-center align-items-center">
+                                                        <i class="fas fa-thumbs-'.$icon.'"></i>
+                                                    </button>
+                                                </div>
+                                                <img src="images/img_filme/'.$imagem[$i].'.jpg" class="card-img-top mb-3" data-toggle="modal" data-target="#Modal'.$imagem[$i].'"/>
+                                                <div class="card-body p-0">
+                                                    <h5 class="card-title">'.$titulo[$i].'</h5>
+                                                    <p class="card-text">'.$genero[$i].'</p>
+                                                    <p class="card-text">'.$data[$i].'</p>
+                                                </div>
+                                                <div class="btn-play">
+                                                    <form action="favoritosadd.php" method="POST">
+                                                        <button name="email" value="'.$logado.'" class="d-flex justify-content-center align-items-center">
+                                                            <input type="" name="filme" value="'.$id_filme[$i].'" hidden>
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                }
+                                $i++;
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
 
         <!--INICIO MODAL PARA FILMES-->
-        <div class="modal fade" id="ModalAne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalanne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -784,7 +326,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                    <input type="" name="filme" value="Anne with an E" hidden>
+                                    <input type="" name="filme" value="4" hidden>
                                     <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                     <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -795,7 +337,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalGente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalgente_grande" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -811,7 +353,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Gente Grande" hidden>
+                                        <input type="" name="filme" value="5" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -823,7 +365,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalBrooklyn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalbrooklyn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -839,7 +381,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Brooklyn Nine-Nine" hidden>
+                                        <input type="" name="filme" value="6" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -851,7 +393,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalPaixao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalpaixao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -867,7 +409,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Paixão Obsessiva" hidden>
+                                        <input type="" name="filme" value="7" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -879,7 +421,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalVis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalvis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -895,7 +437,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Vis a Vis" hidden>
+                                        <input type="" name="filme" value="8" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -907,7 +449,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalIlha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalilha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -923,7 +465,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Ilha do Medo" hidden>
+                                        <input type="" name="filme" value="9" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -935,7 +477,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalRogue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalrogue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -951,7 +493,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Rogue" hidden>
+                                        <input type="" name="filme" value="3" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -963,7 +505,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalBilleted" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalbilleted" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -979,7 +521,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Bill & Ted" hidden>
+                                        <input type="" name="filme" value="2" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -991,7 +533,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalTenet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modaltenet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1007,7 +549,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Tenet" hidden>
+                                        <input type="" name="filme" value="1" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1022,7 +564,7 @@
         <!--FIM MODAL PARA FILMES-->
 
         <!--INICIO MODAL PARA SERIES-->
-        <div class="modal fade" id="ModalDark" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modaldark" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1038,7 +580,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Dark" hidden>
+                                        <input type="" name="filme" value="12" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1050,7 +592,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalLucifer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modallucifer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1066,7 +608,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Lucifer" hidden>
+                                        <input type="" name="filme" value="10" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1078,7 +620,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalTheBoys" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modaltheboys" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1094,7 +636,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="TheBoys" hidden>
+                                        <input type="" name="filme" value="11" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1106,7 +648,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalAmeaca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalameaca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1122,7 +664,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Ameaca" hidden>
+                                        <input type="" name="filme" value="13" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1134,7 +676,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalHomemInvi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalhomem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1150,7 +692,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="HomemInvi" hidden>
+                                        <input type="" name="filme" value="14" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1162,7 +704,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalDoisIrmao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modaldois" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1178,7 +720,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="DoisIrmao" hidden>
+                                        <input type="" name="filme" value="15" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1190,7 +732,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalPoco" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalpoco" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1206,7 +748,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Poco" hidden>
+                                        <input type="" name="filme" value="16" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1218,7 +760,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalSimpsons" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalsim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1234,7 +776,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Simpsons" hidden>
+                                        <input type="" name="filme" value="17" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1246,7 +788,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalMilagre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modalmilagre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="item active">
@@ -1262,7 +804,7 @@
                                     <label for="exampleFormControlInput1">Avalie</label>
                                     <div class="modal-footer">
                                         <input type="" name="email" value="<?php echo $logado; ?>" hidden>
-                                        <input type="" name="filme" value="Milagre" hidden>
+                                        <input type="" name="filme" value="18" hidden>
                                         <button type="submit" name="avaliacao" value="1" id="insertdata" class="btn btn-success btn-sm">Gostei</button>
                                         <button type="submit" name="avaliacao" value="0" id="insertdata" class="btn btn-danger btn-sm">Não gostei</button>
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
@@ -1286,74 +828,74 @@
         <script src="assets/js/scripts.js"></script>
         <script>
             // INICIO PAUSE DE VIDEO DO MODAL DE FILMES
-            $('#ModalAne').on('show.bs.modal', function() {
+            $('#Modalanne').on('show.bs.modal', function() {
                 $("#videoIframeAne")[0].src += "&autoplay=1";
             });
-            $('#ModalAne').on('hidden.bs.modal', function(e) {
+            $('#Modalanne').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeAne")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeAne")[0].src = rawVideoURL;
             });
-            $('#ModalGente').on('show.bs.modal', function() {
+            $('#Modalgente_grande').on('show.bs.modal', function() {
                 $("#videoIframeGente")[0].src += "&autoplay=1";
             });
-            $('#ModalGente').on('hidden.bs.modal', function(e) {
+            $('#Modalgente_grande').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeGente")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeGente")[0].src = rawVideoURL;
             });
-            $('#ModalBrooklyn').on('show.bs.modal', function() {
+            $('#Modalbrooklyn').on('show.bs.modal', function() {
                 $("#videoIframeBrooklyn")[0].src += "&autoplay=1";
             });
-            $('#ModalBrooklyn').on('hidden.bs.modal', function(e) {
+            $('#Modalbrooklyn').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeBrooklyn")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeBrooklyn")[0].src = rawVideoURL;
             });
-            $('#ModalPaixao').on('show.bs.modal', function() {
+            $('#Modalpaixao').on('show.bs.modal', function() {
                 $("#videoIframePaixao")[0].src += "&autoplay=1";
             });
-            $('#ModalPaixao').on('hidden.bs.modal', function(e) {
+            $('#Modalpaixao').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframePaixao")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframePaixao")[0].src = rawVideoURL;
             });
-            $('#ModalVis').on('show.bs.modal', function() {
+            $('#Modalvis').on('show.bs.modal', function() {
                 $("#videoIframeVis")[0].src += "&autoplay=1";
             });
-            $('#ModalVis').on('hidden.bs.modal', function(e) {
+            $('#Modalvis').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeVis")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeVis")[0].src = rawVideoURL;
             });
-            $('#ModalIlha').on('show.bs.modal', function() {
+            $('#Modalilha').on('show.bs.modal', function() {
                 $("#videoIframeIlha")[0].src += "&autoplay=1";
             });
-            $('#ModalIlha').on('hidden.bs.modal', function(e) {
+            $('#Modalilha').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeIlha")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeIlha")[0].src = rawVideoURL;
             });
-            $('#ModalRogue').on('show.bs.modal', function() {
+            $('#Modalrogue').on('show.bs.modal', function() {
                 $("#videoIframeRogue")[0].src += "&autoplay=1";
             });
-            $('#ModalRogue').on('hidden.bs.modal', function(e) {
+            $('#Modalrogue').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeRogue")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeRogue")[0].src = rawVideoURL;
             });
-            $('#ModalBilleted').on('show.bs.modal', function() {
+            $('#Modalbilleted').on('show.bs.modal', function() {
                 $("#videoIframeBilleted")[0].src += "&autoplay=1";
             });
-            $('#ModalBilleted').on('hidden.bs.modal', function(e) {
+            $('#Modalbilleted').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeBilleted")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeBilleted")[0].src = rawVideoURL;
             });
-            $('#ModalTenet').on('show.bs.modal', function() {
+            $('#Modaltenet').on('show.bs.modal', function() {
                 $("#videoIframeTenet")[0].src += "&autoplay=1";
             });
-            $('#ModalTenet').on('hidden.bs.modal', function(e) {
+            $('#Modaltenet').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeTenet")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeTenet")[0].src = rawVideoURL;
@@ -1361,74 +903,74 @@
             // FIM PAUSE DE VIDEO DO MODAL DE FILMES
 
             // INICIO PAUSE DE VIDEO DO MODAL DE SERIES
-            $('#ModalDark').on('show.bs.modal', function() {
+            $('#Modaldark').on('show.bs.modal', function() {
                 $("#videoIframeDark")[0].src += "&autoplay=1";
             });
-            $('#ModalDark').on('hidden.bs.modal', function(e) {
+            $('#Modaldark').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeDark")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeDark")[0].src = rawVideoURL;
             });
-            $('#ModalLucifer').on('show.bs.modal', function() {
+            $('#Modallucifer').on('show.bs.modal', function() {
                 $("#videoIframeLucifer")[0].src += "&autoplay=1";
             });
-            $('#ModalLucifer').on('hidden.bs.modal', function(e) {
+            $('#Modallucifer').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeLucifer")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeLucifer")[0].src = rawVideoURL;
             });
-            $('#ModalTheBoys').on('show.bs.modal', function() {
+            $('#Modaltheboys').on('show.bs.modal', function() {
                 $("#videoIframeTheBoys")[0].src += "&autoplay=1";
             });
-            $('#ModalTheBoys').on('hidden.bs.modal', function(e) {
+            $('#Modaltheboys').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeTheBoys")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeTheBoys")[0].src = rawVideoURL;
             });
-            $('#ModalAmeaca').on('show.bs.modal', function() {
+            $('#Modalameaca').on('show.bs.modal', function() {
                 $("#videoIframeAmeaca")[0].src += "&autoplay=1";
             });
-            $('#ModalAmeaca').on('hidden.bs.modal', function(e) {
+            $('#Modalameaca').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeAmeaca")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeAmeaca")[0].src = rawVideoURL;
             });
-            $('#ModalHomemInvi').on('show.bs.modal', function() {
+            $('#Modalhomem').on('show.bs.modal', function() {
                 $("#videoIframeHomemInvi")[0].src += "&autoplay=1";
             });
-            $('#ModalHomemInvi').on('hidden.bs.modal', function(e) {
+            $('#Modalhomem').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeHomemInvi")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeHomemInvi")[0].src = rawVideoURL;
             });
-            $('#ModalDoisIrmao').on('show.bs.modal', function() {
+            $('#Modaldois').on('show.bs.modal', function() {
                 $("#videoIframeDoisIrmao")[0].src += "&autoplay=1";
             });
-            $('#ModalDoisIrmao').on('hidden.bs.modal', function(e) {
+            $('#Modaldois').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeDoisIrmao")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeDoisIrmao")[0].src = rawVideoURL;
             });
-            $('#ModalPoco').on('show.bs.modal', function() {
+            $('#Modalpoco').on('show.bs.modal', function() {
                 $("#videoIframePoco")[0].src += "&autoplay=1";
             });
-            $('#ModalPoco').on('hidden.bs.modal', function(e) {
+            $('#Modalpoco').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframePoco")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframePoco")[0].src = rawVideoURL;
             });
-            $('#ModalSimpsons').on('show.bs.modal', function() {
+            $('#Modalsim').on('show.bs.modal', function() {
                 $("#videoIframeSimpsons")[0].src += "&autoplay=1";
             });
-            $('#ModalSimpsons').on('hidden.bs.modal', function(e) {
+            $('#Modalsim').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeSimpsons")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeSimpsons")[0].src = rawVideoURL;
             });
-            $('#ModalMilagre').on('show.bs.modal', function() {
+            $('#Modalmilagre').on('show.bs.modal', function() {
                 $("#videoIframeMilagre")[0].src += "&autoplay=1";
             });
-            $('#ModalMilagre').on('hidden.bs.modal', function(e) {
+            $('#Modalmilagre').on('hidden.bs.modal', function(e) {
                 var rawVideoURL = $("#videoIframeMilagre")[0].src;
                 rawVideoURL = rawVideoURL.replace("&autoplay=1", "");
                 $("#videoIframeMilagre")[0].src = rawVideoURL;
