@@ -21,7 +21,7 @@
             session_start();
             if((!isset($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
                 session_unset();
-                echo "<script>alert('Esta página só pode ser acessada por usuário logado');window.location.href = 'index.html';</script>";
+                echo "<script>window.location.href = 'index.php';</script>";
             }
             $logado = $_SESSION['email'];
         ?>
@@ -108,7 +108,13 @@
                                             <span class="focus-input100"></span>
                                         </div>
                                         <div class="container-login100-form-btn m-t-17">
-                                            <button class="login100-form-btn">Excluir</button>
+                                            <button class="nav-link login100-form-btn">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Excluir
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

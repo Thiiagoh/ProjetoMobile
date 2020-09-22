@@ -21,7 +21,7 @@
             include_once "conectar.php";
             if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
                 session_unset();
-                echo "<script>alert('Esta página só pode ser acessada por usuário logado');window.location.href = 'index.html';</script>";
+                echo "<script>window.location.href = 'index.php';</script>";
             }
             $logado = $_SESSION['email'];
         ?>
@@ -41,7 +41,11 @@
                         $tenta_achar = "SELECT * FROM clientes WHERE email='$logado' AND senha='$senha'";
                         $resultados = $conecta->query($tenta_achar);
                         if ($resultados->num_rows <= 0){
-                            echo 'Senha errada ou o ususário não existe!<br><br>';
+                            echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                        <div class="alert alert-danger fade show" role="alert">
+                                            <strong>Erro!</strong> Senha errada ou o ususário não existe!
+                                        </div>
+                                    </div><br>';
                             echo '<a href="alterarDados.php"><button class="login100-form-btn">Voltar</button></a>';
                         }else{
                             $row = $resultado = $conecta->query($tenta_achar);
@@ -51,13 +55,21 @@
                             if ($user=$row['senha'] == $senha){
                                 $sql = "UPDATE clientes SET senha='$senha2' WHERE email='$logado'";
                                 if ($conecta->query($sql) === TRUE){
-                                    echo "Senha alterada com sucesso!<br><br>";
+                                    echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-success fade show" role="alert">
+                                                    <strong>Sucesso!</strong> Senha alterada com sucesso!
+                                                </div>
+                                            </div><br>';
                                     echo '<a href="desconectar.php"><button class="login100-form-btn">Logar novamente</button></a>';
                                 }else{
                                     echo "Erro na atualização do registro: " . $conecta->error."<br><br>";
                                     echo '<a href="alterarDados.php"><button class="login100-form-btn">Voltar</button></a>';}
                             }else{
-                                echo 'As senhas não correspondem!<br><br>';
+                                echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-warning fade show" role="alert">
+                                                    <strong>Erro!</strong> As senhas não correspondem!
+                                                </div>
+                                            </div><br>';
                                 echo '<a href="alterarDados.php"><button class="login100-form-btn">Voltar</button></a>';}
                         }
                         $conecta->close();

@@ -36,20 +36,36 @@
                         //Inserir registro
                         if ($senha == $senha2){
                             if (empty($email) || empty($senha) || empty($senha2)){
-                                echo 'Algum campo esta vazio, escreva algo.<br><br>';
+                                echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-warning fade show" role="alert">
+                                                    <strong>Erro!</strong> Algum campo esta vazio, escreva algo!
+                                                </div>
+                                            </div><br>';
                                 echo '<a href="criar.html"><button class="login100-form-btn">Voltar</button></a>';
                             }else{
                                 $sql = "INSERT INTO clientes(email, senha) VALUES('$email', '$senha')";
                                 if ($conecta->query($sql) === TRUE) {
-                                    echo "Usuário registrado com sucesso!<br><br>";
-                                    echo '<a href="index.html"><button class="login100-form-btn">Entrar</button></a>';
+                                    echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-success fade show" role="alert">
+                                                    <strong>Sucesso!</strong> Usuário registrado com sucesso!
+                                                </div>
+                                            </div><br>';
+                                    echo '<a href="index.php"><button class="login100-form-btn">Entrar</button></a>';
                                 } else{
-                                    echo "O usuário informado já existe!<br><br>";
+                                    echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-warning fade show" role="alert">
+                                                    <strong>Erro!</strong> O usuário informado já existe!
+                                                </div>
+                                            </div><br>';
                                     echo '<a href="criar.html"><button class="login100-form-btn">Voltar</button></a>';
                                 }
                             }
                         }else{
-                            echo 'As senhas não correspondem!<br><br>';
+                            echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                        <div class="alert alert-danger fade show" role="alert">
+                                            <strong>Erro!</strong> As senhas não correspondem!
+                                        </div>
+                                    </div><br>';
                             echo '<a href="criar.html"><button class="login100-form-btn">Voltar</button></a>';
                         }
                         $conecta->close();

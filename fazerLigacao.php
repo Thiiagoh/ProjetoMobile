@@ -20,6 +20,6 @@
     else{
         session_unset();
         session_destroy();
-        echo "<script>alert('Login ou senha incorreto');window.location.href = 'index.html';</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
     }
 ?>

@@ -1,5 +1,4 @@
 <?php
-    
     $nome_servidor = "localhost";
     $nome_usuario = "root";
     $senhaBanco = "";

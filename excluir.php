@@ -20,7 +20,7 @@
             include_once "conectar.php";
             if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
                 session_unset();
-                echo "<script>alert('Esta página só pode ser acessada por usuário logado');window.location.href = 'index.html';</script>";
+                echo "<script>window.location.href = 'index.php';</script>";
             }
             $logado = $_SESSION['email'];
         ?>
@@ -41,7 +41,11 @@
                         $tenta_achar = "SELECT * FROM clientes WHERE email='$logado' AND senha='$senha'";
                         $resultados = $conecta->query($tenta_achar);
                         if ($resultados->num_rows <= 0){
-                            echo 'Nenhum usuário encontrado!<br><br>';
+                            echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-warning fade show" role="alert">
+                                                    <strong>Erro!</strong> Nenhum usuário encontrado!
+                                                </div>
+                                            </div><br>';
                             echo '<a href="excluirConta.php"><button class="login100-form-btn">Voltar</button></a>';
                         }else{
                             $row = $resultados = $conecta->query($tenta_achar);
@@ -49,19 +53,27 @@
                             $user = $row['senha'];
                             //Verificar se a senha do banco é igual ao que o usuário informou
                             if ($user=$row['senha'] == $senha AND $senha == $senha2){
-                                $sqlrem = "DELETE FROM filmes_series_favoritos WHERE clientes_email='$logado'";
+                                $sqlrem = "DELETE FROM filmes_series_assistir_mais_tarde WHERE clientes_email='$logado'";
                                 $sql = "DELETE FROM clientes WHERE email='$logado'";
                                 $sql2 = "DELETE FROM filmes_series_assistidos WHERE clientes_email='$logado'";
                                 $sql3 = "DELETE FROM filmes_series_avaliacao WHERE clientes_email='$logado'";
                                 if ($conecta->query($sql3) AND $conecta->query($sql2) AND $conecta->query($sqlrem) AND $conecta->query($sql) === TRUE ){
-                                    echo "Usuário apagado com sucesso!<br><br>";
-                                    echo '<a href="desconectar.php"><button class="login100-form-btn">Voltar</button></a>';}
+                                    echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-success fade show" role="alert">
+                                                    <strong>Sucesso!</strong> Usuário registrado com sucesso!
+                                                </div>
+                                            </div><br>';
+                                    echo '<a href="desconectar.php"><button class="login100-form-btn">INÍCIO</button></a>';}
                                 else{
                                     echo "Erro ao apagar o usuario: " . $conecta->error."<br><br>";
                                     echo '<a href="excluirConta.php"><button class="login100-form-btn">Voltar</button></a>';
                                 }
                             }else{
-                                echo 'As senhas não correspondem!<br><br>';
+                                echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
+                                                <div class="alert alert-warning fade show" role="alert">
+                                                    <strong>Erro!</strong> As senhas não correspondem!
+                                                </div>
+                                            </div><br>';
                                 echo '<a href="excluirConta.php"><button class="login100-form-btn">Voltar</button></a>';
                             }
                         }
