@@ -194,6 +194,15 @@ button{
     right: 16px;
     bottom: 16px;
     opacity: 0;
+    border-radius: 50px;
+}
+
+.btn-play:hover button{
+    background-color: black;
+}
+
+.btn-play:hover{
+    box-shadow: 1px 1px 10px gray;
 }
 
 .main .list .card:hover > .btn-play{
@@ -205,7 +214,6 @@ button{
 }
 
 .main .list .card:hover{
-    opacity: 0.8;
     cursor: pointer;
     background-color: #191919;
 }
@@ -390,6 +398,7 @@ a:hover > .imagem{
     width: 154px;
     height: 231px;
 }
+
 
 #img_car:hover{
     cursor: pointer;
