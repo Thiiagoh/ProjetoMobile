@@ -60,7 +60,7 @@
                                 if ($conecta->query($sql3) AND $conecta->query($sql2) AND $conecta->query($sqlrem) AND $conecta->query($sql) === TRUE ){
                                     echo ' <div class="flex-sb-m w-full" style="justify-content: center;">
                                                 <div class="alert alert-success fade show" role="alert">
-                                                    <strong>Sucesso!</strong> Usuário registrado com sucesso!
+                                                    <strong>Sucesso!</strong> Usuário apagado com sucesso!
                                                 </div>
                                             </div><br>';
                                     echo '<a href="desconectar.php"><button class="login100-form-btn">INÍCIO</button></a>';}
